@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Validate') {
+        stage('initialize') {
             steps {
-                echo 'Validating..'
-		sh '/usr/share/maven/bin/mvn clean Validate'
+                echo 'initializing.....'
+		sh '/usr/share/maven/bin/mvn Initialize'
             }
         }
 	stage('Buiding') {
             steps {
-                echo 'Building..'
+                echo 'Building.....'
 		sh '/usr/share/maven/bin/mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing.....'
 		sh '/usr/share/maven/bin/mvn test'
             }
         }
