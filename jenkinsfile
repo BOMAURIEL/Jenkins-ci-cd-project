@@ -1,26 +1,26 @@
 pipeline {
     agent any
-    
+
+    stages {
         stage('Validate') {
             steps {
-                echo 'Validating....'
-		sh '/usr/share/maven/bin/mvn clean validate'
+                echo 'Validating..'
+		sh '/usr/share/maven/bin/mvn Validate'
             }
         }
-    stages {
-        stage('Build') {
+	stage('Buiding') {
             steps {
                 echo 'Building..'
 		sh '/usr/share/maven/bin/mvn package'
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
                 echo 'Testing..'
 		sh '/usr/share/maven/bin/mvn test'
             }
         }
-        stage('delopy') {
+        stage('Delopy') {
             steps {
                 echo 'Deploying....'
 		sshagent(['Deploy_user']) {
