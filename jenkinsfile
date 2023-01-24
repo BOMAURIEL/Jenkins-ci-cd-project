@@ -1,11 +1,10 @@
 pipeline {
     agent any
     
-    stages {
         stage('Validate') {
             steps {
                 echo 'Validating....'
-		sh 'mvn clean validate'
+		sh '/usr/share/maven/bin/mvn clean validate'
             }
         }
     stages {
