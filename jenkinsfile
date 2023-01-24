@@ -5,13 +5,13 @@ pipeline {
         stage('Validate') {
             steps {
                 echo 'Validating..'
-		sh 'mvn clean Validate'
+		sh '/usr/share/maven/bin/mvn clean Validate'
             }
         }
 	stage('Buiding') {
             steps {
                 echo 'Building..'
-		sh '/usr/share/maven/bin/mvn package'
+		sh '/usr/share/maven/bin/mvn clean package'
             }
         }
         stage('Test') {
