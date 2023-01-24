@@ -5,7 +5,7 @@ pipeline {
         stage('initialize') {
             steps {
                 echo 'initializing.....'
-		sh '/usr/share/maven/bin/mvn Initialize'
+		sh '/usr/share/maven/bin/mvn initialize'
             }
         }
 	stage('Buiding') {
