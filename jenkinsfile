@@ -1,6 +1,13 @@
 pipeline {
     agent any
-
+    
+    stages {
+        stage('Validate') {
+            steps {
+                echo 'Validating....'
+		sh '/usr/share/maven/bin/mvn validate'
+            }
+        }
     stages {
         stage('Build') {
             steps {
@@ -10,7 +17,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                echo 'Building..'
+                echo 'Testing..'
 		sh '/usr/share/maven/bin/mvn test'
             }
         }
