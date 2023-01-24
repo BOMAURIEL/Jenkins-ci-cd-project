@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('initialize') {
+        stage('Initialize') {
             steps {
-                echo 'initializing.....'
+                echo 'Initializing.....'
 		sh '/usr/share/maven/bin/mvn initialize'
             }
         }
